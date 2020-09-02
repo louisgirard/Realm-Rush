@@ -18,6 +18,8 @@ public class CubeEditor : MonoBehaviour
         transform.position = snapPosition;
 
         textMesh = GetComponentInChildren<TextMesh>();
-        textMesh.text = snapPosition.x.ToString() + "," + snapPosition.z.ToString();
+        textMesh.text = snapPosition.x / gridSize + "," + snapPosition.z / gridSize;
+
+        gameObject.name = textMesh.text;
     }
 }
