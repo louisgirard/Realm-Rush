@@ -7,6 +7,7 @@ public class Pathfinder : MonoBehaviour
 {
     Dictionary<Vector2Int, Waypoint> grid = new Dictionary<Vector2Int, Waypoint>();
     [SerializeField] Waypoint start, end;
+    List<Waypoint> path = new List<Waypoint>();
 
     Vector2Int[] directions = {
         Vector2Int.up,
@@ -14,14 +15,6 @@ public class Pathfinder : MonoBehaviour
         Vector2Int.down,
         Vector2Int.left
     };
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        LoadBlocks();
-        SetStartAndEndColor();
-        BFS();
-    }
 
     private void LoadBlocks()
     {
@@ -56,7 +49,7 @@ public class Pathfinder : MonoBehaviour
             Waypoint current = queue.Dequeue();
             if (current.Equals(end))
             {
-                PrintPath(current);
+                CreatePath(current);
                 return;
             }
             foreach (Vector2Int direction in directions)
@@ -65,7 +58,7 @@ public class Pathfinder : MonoBehaviour
                 if (grid.ContainsKey(explorationCoordinates))
                 {
                     Waypoint neighbour = grid[explorationCoordinates];
-                    if (!neighbour.explored)
+                    if (!neighbour.explored && !queue.Contains(neighbour))
                     {
                         neighbour.parent = current;
                         queue.Enqueue(neighbour);
@@ -76,7 +69,7 @@ public class Pathfinder : MonoBehaviour
         }
     }
 
-    private void PrintPath(Waypoint current)
+    private void CreatePath(Waypoint current)
     {
         if(current.parent == null)
         {
@@ -84,14 +77,16 @@ public class Pathfinder : MonoBehaviour
         }
         else
         {
-            PrintPath(current.parent);
-            print(current.GetGridPosition());
+            CreatePath(current.parent);
+            path.Add(current);
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public List<Waypoint> GetPath()
     {
-        
+        LoadBlocks();
+        SetStartAndEndColor();
+        BFS();
+        return path;
     }
 }
