@@ -46,7 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   head: {fileID: 776895146877382211}
-  targetEnemy: {fileID: 0}
+  attackRange: 30
+  barrel: {fileID: 4783239141071028897}
 --- !u!1 &8091752914508143654
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,7 +60,7 @@ GameObject:
   - component: {fileID: 4783239141071028897}
   - component: {fileID: 589101589476432226}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
