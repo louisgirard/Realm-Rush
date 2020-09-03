@@ -6,7 +6,6 @@
 public class CubeEditor : MonoBehaviour
 {
     TextMesh textMesh;
-    Vector3 gridPosition;
     Waypoint waypoint;
 
     private void Awake()

@@ -6,11 +6,14 @@ using UnityEngine;
 public class Pathfinder : MonoBehaviour
 {
     Dictionary<Vector2Int, Waypoint> grid = new Dictionary<Vector2Int, Waypoint>();
+    [SerializeField] Waypoint start, end;
 
     // Start is called before the first frame update
     void Start()
     {
         LoadBlocks();
+        start.SetColor(Color.green);
+        end.SetColor(Color.red);
     }
 
     private void LoadBlocks()
