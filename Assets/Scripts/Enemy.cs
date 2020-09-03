@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
+    [SerializeField] int hitPoints = 200;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,15 @@ public class EnemyMovement : MonoBehaviour
         {
             transform.position = waypoint.transform.position;
             yield return new WaitForSeconds(1f);
+        }
+    }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        hitPoints--;
+        if(hitPoints <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }
