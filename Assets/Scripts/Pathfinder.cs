@@ -33,12 +33,6 @@ public class Pathfinder : MonoBehaviour
         }
     }
 
-    private void SetStartAndEndColor()
-    {
-        start.SetColor(Color.green);
-        end.SetColor(Color.red);
-    }
-
     private void BFS()
     {
         Queue<Waypoint> queue = new Queue<Waypoint>();
@@ -85,7 +79,6 @@ public class Pathfinder : MonoBehaviour
     public List<Waypoint> GetPath()
     {
         LoadBlocks();
-        SetStartAndEndColor();
         BFS();
         return path;
     }

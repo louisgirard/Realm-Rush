@@ -19,9 +19,4 @@ public class Waypoint : MonoBehaviour
     {
         return gridSize;
     }
-
-    public void SetColor(Color color)
-    {
-        transform.Find("Top").GetComponent<MeshRenderer>().material.color = color;
-    }
 }
