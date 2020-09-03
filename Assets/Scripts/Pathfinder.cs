@@ -78,8 +78,11 @@ public class Pathfinder : MonoBehaviour
 
     public List<Waypoint> GetPath()
     {
-        LoadBlocks();
-        BFS();
+        if(path.Count == 0)
+        {
+            LoadBlocks();
+            BFS();
+        }
         return path;
     }
 }
