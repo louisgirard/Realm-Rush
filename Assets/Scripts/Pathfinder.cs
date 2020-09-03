@@ -20,7 +20,7 @@ public class Pathfinder : MonoBehaviour
     {
         LoadBlocks();
         SetStartAndEndColor();
-        ExploreNeighbours();
+        BFS();
     }
 
     private void LoadBlocks()
@@ -46,16 +46,46 @@ public class Pathfinder : MonoBehaviour
         end.SetColor(Color.red);
     }
 
-    private void ExploreNeighbours()
+    private void BFS()
     {
-        foreach(Vector2Int direction in directions)
+        Queue<Waypoint> queue = new Queue<Waypoint>();
+        start.explored = true;
+        queue.Enqueue(start);
+        while(queue.Count > 0)
         {
-            Vector2Int explorationCoordinates = start.GetGridPosition() + direction;
-            //print("Exploring : " + explorationCoordinates);
-            if (grid.ContainsKey(explorationCoordinates))
+            Waypoint current = queue.Dequeue();
+            if (current.Equals(end))
             {
-                grid[explorationCoordinates].SetColor(Color.blue);
+                PrintPath(current);
+                return;
             }
+            foreach (Vector2Int direction in directions)
+            {
+                Vector2Int explorationCoordinates = current.GetGridPosition() + direction;
+                if (grid.ContainsKey(explorationCoordinates))
+                {
+                    Waypoint neighbour = grid[explorationCoordinates];
+                    if (!neighbour.explored)
+                    {
+                        neighbour.parent = current;
+                        queue.Enqueue(neighbour);
+                    }
+                }
+            }
+            current.explored = true;
+        }
+    }
+
+    private void PrintPath(Waypoint current)
+    {
+        if(current.parent == null)
+        {
+            return;
+        }
+        else
+        {
+            PrintPath(current.parent);
+            print(current.GetGridPosition());
         }
     }
 
