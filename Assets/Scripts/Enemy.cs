@@ -5,12 +5,17 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] int hitPoints = 200;
+    [SerializeField] int moneyGiven = 1;
     [SerializeField] ParticleSystem damageParticles;
     [SerializeField] ParticleSystem deathParticles;
+
+    MoneyBoard moneyBoard;
 
     // Start is called before the first frame update
     void Start()
     {
+        moneyBoard = FindObjectOfType<MoneyBoard>();
+
         Pathfinder pathfinder = FindObjectOfType<Pathfinder>();
         List<Waypoint> path = pathfinder.GetPath();
         StartCoroutine(FollowPath(path));
@@ -30,12 +35,18 @@ public class Enemy : MonoBehaviour
         hitPoints--;
         if(hitPoints <= 0)
         {
-            Instantiate(deathParticles, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            ProcessDeath();
         }
         else
         {
             Instantiate(damageParticles, transform.position, Quaternion.identity);
         }
+    }
+
+    private void ProcessDeath()
+    {
+        moneyBoard.AddMoney(moneyGiven);
+        Instantiate(deathParticles, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }
