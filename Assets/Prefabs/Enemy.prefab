@@ -62,6 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee071ac07d931cc43b14f4fa45dbc31b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementPeriod: 1
   hitPoints: 20
   moneyGiven: 1
   damageParticles: {fileID: 4290268913806001562}
