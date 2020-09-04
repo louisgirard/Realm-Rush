@@ -8,19 +8,26 @@ public class Tower : MonoBehaviour
     [SerializeField] float attackRange = 30f;
     [SerializeField] ParticleSystem barrel;
 
-    Transform targetEnemy;
+    Enemy targetEnemy;
 
     // Update is called once per frame
     void Update()
     {
-        head.LookAt(targetEnemy);
-        ShootAtEnemy();
+        targetEnemy = FindObjectOfType<Enemy>();
+        if(targetEnemy != null)
+        {
+            head.LookAt(targetEnemy.transform);
+            ShootAtEnemy();
+        }
+        else
+        {
+            barrel.gameObject.SetActive(false);
+        }
     }
 
     private void ShootAtEnemy()
     {
-        targetEnemy = FindObjectOfType<Enemy>().transform;
-        float distance = Vector3.Distance(targetEnemy.position, head.position);
+        float distance = Vector3.Distance(targetEnemy.transform.position, head.position);
         barrel.gameObject.SetActive(distance <= attackRange);
     }
 }
