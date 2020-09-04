@@ -19027,7 +19027,6 @@ GameObject:
   - component: {fileID: 4932202034452574}
   - component: {fileID: 198537984209914932}
   - component: {fileID: 199362987947312204}
-  - component: {fileID: -6838734532959113575}
   m_Layer: 0
   m_Name: Enemy Death Particles
   m_TagString: Untagged
@@ -23775,16 +23774,3 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &-6838734532959113575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1929956291960174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b4e0faca9f51344782825340e42fda9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destructionDelay: 1

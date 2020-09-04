@@ -39,14 +39,16 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            Instantiate(damageParticles, transform.position, Quaternion.identity);
+            damageParticles.Play();
         }
     }
 
     private void ProcessDeath()
     {
         moneyBoard.AddMoney(moneyGiven);
-        Instantiate(deathParticles, transform.position, Quaternion.identity);
+        ParticleSystem death = Instantiate(deathParticles, transform.position, Quaternion.identity);
+        Destroy(death.gameObject, deathParticles.main.duration);
+
         Destroy(gameObject);
     }
 }
