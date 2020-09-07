@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 54660159372924652}
   - component: {fileID: 389993962989432215}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,8 +62,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee071ac07d931cc43b14f4fa45dbc31b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementPeriod: 1
-  hitPoints: 25
+  movementPeriod: 0.5
+  hitPoints: 15
   moneyGiven: 1
   damageParticles: {fileID: 4290268913806001562}
   deathParticles: {fileID: 198537984209914932, guid: 1a51bfda454239a41afb7dee687c6ac0,
@@ -4885,7 +4885,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 37b99336461214a40b89b24408e235bb, type: 2}
+  - {fileID: 2100000, guid: 73cff2de721e10f4d88c473d8ec56a73, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

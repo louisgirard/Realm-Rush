@@ -37,7 +37,8 @@ public class Enemy : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        hitPoints--;
+        Bullet bullet = other.GetComponent<Bullet>();
+        hitPoints -= bullet.GetDamage();
         if(hitPoints <= 0)
         {
             ProcessDeath();

@@ -1,9 +1,9 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlaceTower : MonoBehaviour
 {
-    [SerializeField] GameObject towerPrefab;
+    [SerializeField] GameObject tower1Prefab;
+    [SerializeField] GameObject tower2Prefab;
     [SerializeField] Transform parent;
     [SerializeField] int moneyPerTower = 5;
 
@@ -27,9 +27,18 @@ public class PlaceTower : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && towerPlaced == null && moneyBoard.GetMoney() >= moneyPerTower)
         {
-            towerPlaced = Instantiate(towerPrefab, transform.position + offset, Quaternion.identity);
-            towerPlaced.transform.parent = parent;
-            moneyBoard.AddMoney(-moneyPerTower);
+            if (Input.GetKey(KeyCode.Alpha1))
+            {
+                towerPlaced = Instantiate(tower1Prefab, transform.position + offset, Quaternion.identity);
+                towerPlaced.transform.parent = parent;
+                moneyBoard.AddMoney(-moneyPerTower);
+            }
+            else if(Input.GetKey(KeyCode.Alpha2))
+            {
+                towerPlaced = Instantiate(tower2Prefab, transform.position + offset, Quaternion.identity);
+                towerPlaced.transform.parent = parent;
+                moneyBoard.AddMoney(-moneyPerTower);
+            }
         }
     }
 

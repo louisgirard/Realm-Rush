@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LifeBoard : MonoBehaviour
 {
@@ -17,5 +18,9 @@ public class LifeBoard : MonoBehaviour
     {
         lives -= livesToLose;
         livesText.text = lives.ToString();
+        if(lives <= 0)
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 }

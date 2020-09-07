@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 776453414199686760}
   - component: {fileID: 776453414199686761}
   m_Layer: 0
-  m_Name: Tower
+  m_Name: Tower 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   head: {fileID: 776895146877382211}
-  attackRange: 30
+  attackRange: 50
   barrel: {fileID: 4783239141071028897}
 --- !u!1 &8091752914508143654
 GameObject:
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 6639545968586185144}
   - component: {fileID: 4783239141071028897}
   - component: {fileID: 589101589476432226}
-  - component: {fileID: 1060332417181445540}
+  - component: {fileID: 6882240382405537528}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Untagged
@@ -164,7 +164,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0.6
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -217,7 +217,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 40
+      scalar: 100
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -271,7 +271,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.99087954, g: 0.41176474, b: 1, a: 1}
+      maxColor: {r: 0.9835268, g: 1, b: 0.41176474, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -333,7 +333,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 4
       minScalar: 0.5
       maxCurve:
         serializedVersion: 2
@@ -914,7 +914,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3.5
+      scalar: 0.7
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4803,7 +4803,7 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &1060332417181445540
+--- !u!114 &6882240382405537528
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4815,7 +4815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95435b93f6550974fbdbe5cca745b3e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 1
+  power: 5
 --- !u!1001 &776453414939387147
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4883,6 +4883,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 23456065781853898, guid: 4e889d43572027a409a3dab490438a22,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8a4987ed6a1dfd949a92d64503ab6c7f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e889d43572027a409a3dab490438a22, type: 3}
 --- !u!4 &780839326135717557 stripped
@@ -4958,6 +4963,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 23498375051033304, guid: 8238921bafd389b44921fe80cc7f1f9d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8a4987ed6a1dfd949a92d64503ab6c7f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8238921bafd389b44921fe80cc7f1f9d, type: 3}
 --- !u!4 &776895146877382211 stripped
