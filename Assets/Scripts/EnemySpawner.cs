@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] GameObject boss1Prefab;
     [SerializeField] GameObject boss2Prefab;
 
-    int enemiesSpawned = 0;
+    bool endWave = false;
 
     // Start is called before the first frame update
     void Start()
@@ -21,13 +21,14 @@ public class EnemySpawner : MonoBehaviour
     //Waves : 10 normal / 10 fast / 1 boss / 20 normals / 15 fast / big boss / 15 normals
     IEnumerator SpawnEnemies()
     {
+        yield return new WaitForSeconds(4f);
+
         GameObject enemy;
         // 10 normals
         for (int i = 0; i < 10; i++)
         {
             enemy = Instantiate(enemy1Prefab, transform.position, Quaternion.identity);
             enemy.transform.parent = transform;
-            enemiesSpawned++;
             secondsBetweenSpawns = 4;
             yield return new WaitForSeconds(secondsBetweenSpawns);
         }
@@ -36,20 +37,17 @@ public class EnemySpawner : MonoBehaviour
         {
             enemy = Instantiate(enemy2Prefab, transform.position, Quaternion.identity);
             enemy.transform.parent = transform;
-            enemiesSpawned++;
             secondsBetweenSpawns = 1;
             yield return new WaitForSeconds(secondsBetweenSpawns);
         }
         // boss 1
         enemy = Instantiate(boss1Prefab, transform.position, Quaternion.identity);
         enemy.transform.parent = transform;
-        enemiesSpawned++;
         // 20 normal
         for (int i = 0; i < 20; i++)
         {
             enemy = Instantiate(enemy1Prefab, transform.position, Quaternion.identity);
             enemy.transform.parent = transform;
-            enemiesSpawned++;
             secondsBetweenSpawns = 2;
             yield return new WaitForSeconds(secondsBetweenSpawns);
         }
@@ -58,22 +56,25 @@ public class EnemySpawner : MonoBehaviour
         {
             enemy = Instantiate(enemy2Prefab, transform.position, Quaternion.identity);
             enemy.transform.parent = transform;
-            enemiesSpawned++;
             secondsBetweenSpawns = 1;
             yield return new WaitForSeconds(secondsBetweenSpawns);
         }
         // boss 2
         enemy = Instantiate(boss2Prefab, transform.position, Quaternion.identity);
         enemy.transform.parent = transform;
-        enemiesSpawned++;
         // 10 normal
         for (int i = 0; i < 10; i++)
         {
             enemy = Instantiate(enemy1Prefab, transform.position, Quaternion.identity);
             enemy.transform.parent = transform;
-            enemiesSpawned++;
             secondsBetweenSpawns = 2;
             yield return new WaitForSeconds(secondsBetweenSpawns);
         }
+        endWave = true;
+    }
+
+    public bool AllEnemiesSpawned()
+    {
+        return endWave;
     }
 }
